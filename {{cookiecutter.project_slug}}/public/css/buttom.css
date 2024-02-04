@@ -1,0 +1,34 @@
+.btn-dark-red {
+    background-color: #e11d48; /* Cor de fundo do botão */
+    border-color: #e11d48; /* Cor da borda do botão */
+    color: #ffffff;
+}
+
+.btn-dark-red:hover {
+    background-color: #c8103c; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #c8103c; /* Cor da borda do botão ao passar o mouse */
+    color: #ffffff;
+}
+
+.btn-outline-dark-red {
+    color: #e11d48; /* Cor do texto do botão */
+    border-color: #e11d48; /* Cor da borda do botão */
+    background-color: transparent; /* Fundo transparente */
+}
+
+.btn-outline-dark-red:hover {
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #e11d48; /* Cor de fundo ao passar o mouse */
+    border-color: #e11d48; /* Cor da borda ao passar o mouse */
+}
+
+
+.errorlist {
+    color: red;
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+.errorlist li {
+    margin-bottom: 5px;
+}

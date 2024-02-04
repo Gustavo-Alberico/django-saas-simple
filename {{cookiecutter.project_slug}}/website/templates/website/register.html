@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %}
+{% block metadata %}
+<script src="{% static 'js/alert.js' %}"></script>
+{% endblock %}
+{% block title %} Cadastro {% endblock%}
+{% block content%}
+<div class="container d-flex justify-content-center flex-column" style="min-height: 100%;">
+    {% if messages %}
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-danger alert-dismissible fade show w-auto" role="alert" style="max-width: 80%;">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {% for message in messages %}
+                    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card col col-xl-4 col-lg-6 col-md-8 col-xs-12">
+            <div class="card-body d-flex justify-content-center flex-column">
+                <h3 class="card-title text-center pb-5">CADASTRO</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <p>
+                            {{ field.label_tag }}<br>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <small style="color: grey">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger mt-1">{{ error }}</div>
+                            {% endfor %}
+                        </p>
+                    {% endfor %}
+                    <div class="py-3 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark-red w-100">Cadastrar</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
